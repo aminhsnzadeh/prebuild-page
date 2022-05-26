@@ -1,0 +1,93 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #42eec9;
+    border-radius: 20px;
+}
+main {
+    overflow: hidden;
+}
+#page {
+    background-image: url('../img/slider2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.8s ease-in-out;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 5px;
+        background-color: #ffffffdc;
+        transition: 0.8s;
+        animation: 6s animate ease-in-out infinite;
+        z-index: 100;
+    }
+}
+#left {
+    position: relative;
+    transition: 0.8s ease-in-out;
+    z-index: 99 !important;
+    > div {
+        position: absolute;
+        top: -75vh;
+        right: 0;
+        width: 100vw;
+        height: 200vh;
+        transform: rotate(25deg);
+        z-index: -1;
+        background-color: #000000cb;
+        transition: 0.4s;
+    }
+    h3 {
+        cursor: pointer;
+    }
+}
+#right {
+    transition: 0.4s ease-in-out;
+    overflow-y: scroll;
+}
+.skewl {
+    transform: rotate(0deg) !important;
+}
+.moveR {
+    transform: translateX(0) !important;
+}
+#pop {
+    background-color: #000000cb;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: 0.4s;
+    > span {
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+}
+.pop-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+@keyframes animate {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
